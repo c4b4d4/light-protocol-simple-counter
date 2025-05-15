@@ -1,0 +1,37 @@
+[package]
+name = "worlds"
+version = "0.1.0"
+description = "Created with Anchor"
+edition = "2021"
+
+[lib]
+crate-type = ["cdylib", "lib"]
+name = "worlds"
+
+[features]
+no-entrypoint = []
+no-idl = []
+no-log-ix-name = []
+cpi = ["no-entrypoint"]
+default = ["idl-build"]
+test-sbf = []
+bench-sbf = []
+idl-build = ["anchor-lang/idl-build", "light-sdk/idl-build"]
+
+[dependencies]
+anchor-lang = {version="0.29.0", features = ["init-if-needed"]}
+
+light-hasher = { version="1.1.0", features = ["solana"] }
+light-sdk = {version="0.11.0", features = ["no-entrypoint"]}
+
+light-macros = "1.1.0"
+light-sdk-macros = "0.4.0" 
+light-utils = "1.1.0"
+light-verifier = "1.1.0"
+
+thiserror = "1.0"
+anchor-spl = "0.29.0"
+mpl-bubblegum = {version = "1.4.0"}
+solana-program = "1.18.22"
+bytemuck = { version = "1.4.0", features = ["derive", "min_const_generics"]}
+mpl-token-metadata = { version = "5.1.0" }
